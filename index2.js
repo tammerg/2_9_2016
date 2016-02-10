@@ -32,15 +32,7 @@ app.listen(PORT, function(){
 app.engine('handlebars', expressHandlebars({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-app.get('/icecream/favorite', function(req, res){
-  res.render('icecream', icecream.ice1)
-});
-app.get('/icecream/favorite2', function(req, res){
-  res.render('icecream', icecream.ice2)
-});
-app.get('/icecream/favorite3', function(req, res){
-  res.render('icecream', icecream.ice2)
-});
-app.get('/icecream/favorite4', function(req, res){
-  res.render('icecream', icecream.ice4)
+app.get('/:icecream', function(req, res){
+  var flavor = req.params.icecream.this
+  res.render('icecream', flavor);
 });
